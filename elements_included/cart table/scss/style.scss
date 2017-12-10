@@ -1,0 +1,124 @@
+body {padding-top: 50px;}
+
+$padding-sides: 20px;
+$dark-border: #ddd;
+$light-border: #eee;
+
+.cart-wrapper {
+  padding: $padding-sides / 2 $padding-sides;
+}
+
+.last {
+  text-align: right !important;
+}
+
+.no-pr {
+  padding-right: 0;
+}
+
+.no-pl {
+  padding-left: 0;
+}
+
+.pa {
+  padding: $padding-sides / 2 $padding-sides !important;
+}
+
+.pl {
+  padding-left: $padding-sides !important;
+}
+
+.pr {
+  padding-right: $padding-sides !important;
+}
+
+.cart-table {
+  width: 100%;
+  
+  th,
+  td {
+    text-align: left;
+  }
+  
+  caption {
+    text-align: left;
+    font-size: 22px;
+    border-bottom: 1px solid $dark-border;
+    padding: 20px $padding-sides 10px;
+    
+    &.small {
+      font-size: 16px;
+    }
+  }
+  
+  .item-row + .item-row {
+    border-top: 1px solid $light-border;
+  }
+  
+  .cart-item {
+    vertical-align: middle;
+    
+    padding: 0 0 0 $padding-sides;
+    
+    p+p {
+      margin-bottom: 0; //Remove the bottom margin for the 2nd paragraph
+    }
+    img {
+      margin-right: 20px;
+    }
+    .item-name {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+  
+  .cart-item-total {
+    text-align: right;
+    p {
+      font-size: 1.2em;
+      color: #246b8e;
+    }
+  }
+  
+  //Set up cell padding 
+  th,
+  td {
+    padding: 0 $padding-sides / 2;
+  }
+  
+  .key,
+  .value {
+    padding: $padding-sides / 2 $padding-sides;
+  }
+  
+  .key {
+    font-weight: bold;
+  }
+  
+  .value {
+    text-align: right;
+  }
+  
+  .total {
+    border-top: 1px solid $dark-border;
+    .value {
+      color: #246b8e;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+  }
+  
+  .calculate-shipping {
+    padding: $padding-sides / 2 $padding-sides;
+  }
+  
+  //HEADING OVER RIDES
+  .heading {
+    border-bottom: 1px solid $light-border;
+    
+    td,
+    th {
+      padding: $padding-sides $padding-sides / 2 $padding-sides / 2;       
+    }
+  }
+}

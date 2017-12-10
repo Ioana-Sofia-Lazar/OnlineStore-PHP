@@ -1,0 +1,137 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proiect 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,200,300,400,500,600,700" rel="stylesheet"> </head>
+
+<body>
+    <nav>
+        <ul id="log">
+            <li id="floatLeft"><a href="#account">Account</a></li>
+            <li id="floatRight"><a href="#logout">Logout</a></li>
+            <li id="floatRight"><a href="#login">Login</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="cart"><span id="money">Admin Panel</span> </div>
+        <div id="productMain">
+            <div id="categoriesAll">
+                <ul id="categories">
+                    <h1>
+                        Actions
+                    </h1>
+                    <li><a href="#Home">Products</a></li>
+                    <li><a href="#About">Categories</a></li>
+                    <li><a href="#Services">Brands</a></li>
+                    <li><a href="#Contact">Users</a></li>
+                </ul>
+            </div>
+            <div id="products">
+                <span id="searchBox">
+                    <form action="" method="post">
+                        <input name="search-input" id="search">
+                        <button id="searchButton" type="submit" name="search-button">Search</button>
+                    </form>
+                </span>
+                
+                <span id="buttons">
+                    <form action="" method="post">
+                        <button id="searchButton" type="submit" name="add">Add product</button>
+                        <button id="searchButton" type="submit" name="remove-selected">Remove Selected</button>
+                    </form>
+                </span>
+
+                <table class="prod-table">
+                    <caption>Manage Products </caption>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Category</th>
+                            <th>Brand</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th>Remove</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="small-td">1</td>
+                            <td>04/01/2016</td>
+                            <td>$1,190</td>
+                            <td>03/01/2016 - 03/31/2016</td>
+                            <td>$1,190</td>
+                            <td>
+                                <p>$1,190</p>
+                                <form>
+                                    <input class="add-stock" width="20px" name="search-input" id="search">
+                                    <button id="searchButton" type="submit" name="search-button">Add</button>
+                                </form>
+                            </td>
+                            <td><input type="checkbox" name="remove"> </td>
+                            <td><button><a>Edit</a></button></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>04/01/2016</td>
+                            <td>$1,190</td>
+                            <td>03/01/2016 - 03/31/2016</td>
+                            <td>$1,190</td>
+                            <td>$1,190</td>
+                            <td><input type="checkbox" name="remove"> </td>
+                            <td><button><a>Edit</a></button></td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>04/01/2016</td>
+                            <td>$1,190</td>
+                            <td>03/01/2016 - 03/31/2016</td>
+                            <td>$1,190</td>
+                            <td>$1,190</td>
+                            <td><input type="checkbox" name="remove"> </td>
+                            <td><button><a>Edit</a></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table>
+                    <caption>Manage Categories</caption>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Remove</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Visa - 3412</td>
+                            <td>04/01/2016</td>
+                            <td><input type="checkbox" name="remove"></td>
+                            <td><td><button><a>Save changes</a></button></td>
+                        </tr>
+                        <tr>
+                            <td>Visa - 3412</td>
+                            <td>04/01/2016</td>
+                            <td><input type="checkbox" name="remove"></td>
+                            <td><td><button><a>Save changes</a></button></td>
+                        </tr>
+                        <tr>
+                            <td>Visa - 3412</td>
+                            <td>04/01/2016</td>
+                            <td><input type="checkbox" name="remove"></td>
+                            <td><td><button><a>Save changes</a></button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+    <footer> Copyright &copy; Ioana Pascu - 2017 </footer>
+</body>
+
+</html>

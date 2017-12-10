@@ -1,0 +1,100 @@
+.cart-wrapper {
+  padding: 10px 20px;
+}
+
+.last {
+  text-align: right !important;
+}
+
+.no-pr {
+  padding-right: 0;
+}
+
+.no-pl {
+  padding-left: 0;
+}
+
+.pa {
+  padding: 10px 20px !important;
+}
+
+.pl {
+  padding-left: 20px !important;
+}
+
+.pr {
+  padding-right: 20px !important;
+}
+
+.cart-table {
+  width: 100%;
+}
+.cart-table th,
+.cart-table td {
+  text-align: left;
+}
+.cart-table caption {
+  text-align: left;
+  font-size: 22px;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 20px 10px;
+}
+.cart-table caption.small {
+  font-size: 16px;
+}
+.cart-table .item-row + .item-row {
+  border-top: 1px solid #eee;
+}
+.cart-table .cart-item {
+  vertical-align: middle;
+  padding: 0 0 0 20px;
+}
+.cart-table .cart-item p + p {
+  margin-bottom: 0;
+}
+.cart-table .cart-item img {
+  margin-right: 20px;
+}
+.cart-table .cart-item .item-name {
+  font-weight: bold;
+  font-size: 16px;
+}
+.cart-table .cart-item-total {
+  text-align: right;
+}
+.cart-table .cart-item-total p {
+  font-size: 1.2em;
+  color: #246b8e;
+}
+.cart-table th,
+.cart-table td {
+  padding: 0 10px;
+}
+.cart-table .key,
+.cart-table .value {
+  padding: 10px 20px;
+}
+.cart-table .key {
+  font-weight: bold;
+}
+.cart-table .value {
+  text-align: right;
+}
+.cart-table .total {
+  border-top: 1px solid #ddd;
+}
+.cart-table .total .value {
+  color: #246b8e;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.cart-table .calculate-shipping {
+  padding: 10px 20px;
+}
+.cart-table .heading {
+  border-bottom: 1px solid #eee;
+}
+.cart-table .heading td,
+.cart-table .heading th {
+  padding: 20px 10px 10px;
+}

@@ -1,0 +1,101 @@
+#left-col,
+#right-col {
+    background-color: #e0e0e0;
+    float: left;
+    display: inline-block;
+    width: 40%;
+    padding: 10px;
+    margin: 5%;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    border-radius: 6px;
+}
+
+#right-col label,
+#left-col label {
+    display: block;
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 5px;
+}
+
+#right-col input,
+#left-col input,
+#right-col textarea {
+    border-radius: 2px;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 5px;
+    height: 25px;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid #bbb;
+    padding: 0 0 0 10px;
+    font-size: 14px;
+}
+
+#right-col textarea {
+    height: 90px;
+}
+
+#right-col button {
+    border-radius: 2px;
+    width: 90%;
+    margin-left: 5%;
+    margin-bottom: 25px;
+    margin-top: 20px;
+    height: 40px;
+    border-radius: 5px;
+    outline: 0;
+    border: 1px solid #bbb;
+    padding: 0 0 0 10px;
+    font-size: 14px;
+    background-color: #bf9649;
+    color: #ffffff;
+}
+
+#right-col table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+    margin-bottom: 25px;
+}
+
+.caption-p {
+    font-size: 1.5em;
+    margin: 5px;
+    text-align: center;
+}
+
+.td-bold {
+    font-weight: bold;
+}
+
+#right-col table tr {
+    background: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+}
+
+#right-col table th,
+#right-col table td {
+    padding: .625em;
+    text-align: center;
+}
+
+#right-col table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+}
+
+#total-table tr {
+    padding: .2em;
+}
+
+#order-details-container {
+    margin: auto;
+}

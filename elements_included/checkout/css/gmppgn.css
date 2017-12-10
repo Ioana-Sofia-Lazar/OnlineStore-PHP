@@ -1,0 +1,176 @@
+.woocommerce{
+  .form-row{
+    margin-bottom: $glutter;
+    .required{
+      color: $red; 
+      border-bottom: none;
+    }
+    .button[type="submit"]{
+      @include defaultSubmit;
+    }
+  }
+  .input-text{
+    @include defaultInput;
+    &:focus{
+      @include defaultInputFocus
+    }
+  }
+}
+.woocommerce-form__label-for-checkbox{
+  position: relative;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  min-height: 1.5rem;
+  padding-left: 1.5rem;
+  margin-right: 1rem;
+  span:after{
+    display: block;
+    content: "";
+    position: absolute;
+    top: .25rem;
+    left: 0;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    pointer-events: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #ddd;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 50% 50%;
+    border-radius: .25rem;    
+  }  
+  .input-checkbox,
+  input[type="checkbox"]{
+    position: relative;
+    &:focus{
+      &:checked~span:after{
+        box-shadow: 0 0 0 1px #fff, 0 0 0 3px #007bff;
+      }
+    }
+    &:checked~span:after {
+      color: #fff;
+      background-color: #007bff;
+      background-image: url("data:image/svg+xml;charset=utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'><path fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/></svg>");
+    }
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+}
+
+
+$table-cell-padding: 0.7rem;
+.shop_table{
+  width: 100%;
+  margin-bottom: 2rem;
+  max-width: 100%;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+
+  thead{
+    background: #f2f2f2;
+    th{
+      border-bottom: 1px solid #e0e0e0;
+      padding: $table-cell-padding;
+      &:last-child{
+        text-align: right;
+      }
+    }  
+  }
+  
+  tbody{
+    td{
+      padding:$table-cell-padding;
+      
+    } 
+    tr{      
+        td{
+          &:last-child{
+            text-align: right;  
+          }          
+        }
+    }
+  }
+  tfoot{
+    border-top: 1px solid #e0e0e0;
+    background: #fafafa;
+    th{
+      
+      padding: $table-cell-padding;  
+      text-align: right;      
+    }   
+    td{
+      padding: $table-cell-padding;
+      text-align: right;
+      width: 10%;
+    }
+  }
+}
+.woocommerce-info{
+  background: $green;
+  padding: 15px;
+  margin-top: 10px;
+}
+.woocommerce-notice--success{
+  background: $green;
+  margin-top: 10px;
+  padding: 15px;
+}
+@media ( max-width: $breakpoint-sm){  
+}
+@media ( max-width: $breakpoint-xs){
+  .shop_table{
+    thead{
+      display: none;
+    }    
+    tbody{
+      display: block;
+      
+      tr{
+        border-bottom: 1px dotted rgba(0,0,0,.1);
+        display: block;
+        td{
+          display: block;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+          &:last-child{
+            text-align: left;
+          }
+        }
+      }
+    }    
+    tfoot{
+      display: block;
+      tr{
+        display: flex;
+      }
+      th,
+      td{        
+       width: 30%;
+        padding-top: 0.2rem;
+        padding-bottom: .2rem;
+        text-align: left;
+      }
+      td{
+        width: 70%;
+        padding-left: 0;
+      }
+    }
+    [data-label] {
+      position: relative;
+      padding-left: 30%;
+      &:before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 8px;
+        content: attr(data-label);
+        font-weight: bold;
+      }
+    }
+  }
+}

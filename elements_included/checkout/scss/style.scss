@@ -1,0 +1,119 @@
+.woocommerce-info{
+  .showlogin,
+  .showcoupon{
+    border-bottom: 1px solid #000;
+    &:hover,
+    &:focus,
+    &:active{
+      text-decoration: none;
+      color: #333;
+    }
+  }
+  &~.woocommerce-form-login{    
+    margin-bottom: 20px;
+    padding: 20px;
+    background: $bg-gray;
+    .form-row{
+      position: relative;
+    }
+    input[type='submit']{
+      padding-left: 4rem;
+      padding-right: 4rem;
+      margin-right: 10px;
+      position: absolute;
+      right: -10px;
+    }
+    .lost_password{
+      padding-top: 20px;      
+      a{
+        border-bottom: 1px solid rgba(0,0,0,.3);        }      
+    }
+  }
+  &~.checkout_coupon{
+    margin-bottom: 20px;
+    padding: 20px;
+    background: $bg-gray;
+    display: flex;
+    p{
+      margin-bottom: 0;
+    }
+    .form-row-first{
+      flex-grow: 1;   
+      input[type="text"]{
+        border-radius: .25rem 0 0 .25rem;
+      }
+    }
+    .form-row-last{
+      input[type="submit"]{
+        border-radius: 0 .25rem .25rem 0;
+      }
+    }
+  }
+}
+.place-order{
+  padding-top: 40px;
+  input[type="submit"]{
+    display: block;
+    width: 100%;
+  }
+}
+.woocommerce-checkout-payment{
+  label{
+    font-weight: bold;
+  }
+  .payment_methods{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+form.woocommerce-checkout{  
+  .col2-set{
+    display: flex;
+  }
+  .col-1{
+    width: 50%;
+    padding-right: 20px;
+  }
+  .col-2{
+    width: 50%;
+    padding-left: 20px;
+  }
+}
+.woocommerce-checkout-review-order-table{
+  thead{
+    th{
+      &:first-child{
+        padding-left: 50px;
+      }
+      &:last-child{
+        padding-right: 50px;
+      }
+    }
+  }
+  tbody{    
+    td{
+      padding-bottom: 5px;
+      padding-top: 20px;
+      border-bottom: 1px dashed rgba(0,0,0,.05);
+      &:first-child{
+        padding-left: 50px;
+      }
+      &:last-child{
+        padding-right: 50px;
+      }
+    }
+  }
+  tfoot{
+    td{
+      width: 20%;
+      padding-right: 50px;
+    }
+  }
+}
+
+.checkout-info{
+  border-top: 3px solid $gray;
+  padding-top: 50px;
+  margin-top: 50px;
+}

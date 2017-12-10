@@ -1,0 +1,125 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Proiect 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Barlow+Semi+Condensed:100,200,300,400,500,600,700" rel="stylesheet"> </head>
+
+<body>
+    <nav>
+        <ul id="log">
+            <li id="floatLeft"><a href="#account">Account</a></li>
+            <li id="floatRight"><a href="#logout">Logout</a></li>
+            <li id="floatRight"><a href="#login">Login</a></li>
+        </ul>
+        <ul id="meniu">
+            <li><a href="#Home">Home</a></li>
+            <li><a href="#About">About</a></li>
+            <li><a href="#Services">Services</a></li>
+            <li><a href="#Contact">Contact</a></li>
+        </ul>
+    </nav>
+    <main>
+        <div id="cart"><span id="money" style="margin-left: 240px;">Cart: 2 items: $100</span> <span id="searchBox"><button id="searchButton">Search</button><input id="search"></span> </div>
+        <div id="productMain">
+            <div id="categoriesAll">
+                <ul id="categories">
+                    <h1>
+                        Categories
+                    </h1>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Services">Services</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+                <ul id="brands">
+                    <h1 style="border-top: 1px solid #bf9649; padding-top: 10px;">
+                        Brands
+                    </h1>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Services">Services</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+            </div>
+            <div id="products">
+
+                <div id="left-col">
+                    <p class="caption-p">Shipping information</p>
+                    <p>
+                        <label>Name</label>
+                        <input name="name" type="text" placeholder="Name" value="" readonly>
+                    </p>
+                    <p>
+                        <label>E-mail</label>
+                        <input name="email" type="email" placeholder="E-mail" value="" readonly>
+                    </p>
+                    <p>
+                        <label>Country</label>
+                        <input name="country" type="text" placeholder="Country" value="" readonly>
+                    </p>
+                    <p>
+                        <label>Address</label>
+                        <input name="address" type="text" placeholder="Address" value="" readonly>
+                    </p>
+                    <p>
+                        <label>Postal Code</label>
+                        <input name="postal-code" type="number" placeholder="Postal Code" value="" readonly>
+                    </p>
+
+                </div>
+                <div id="right-col">
+                    <p>
+                        <textarea placeholder="Any additional information here..." rows="20" name="note" autocomplete="off" aria-autocomplete="list"></textarea>
+                    </p>
+                    <table>
+                        <p class="caption-p">Order Summary</p>
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Quantity</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Apples</td>
+                                <td>69</td>
+                                <td>$1190</td>
+                            </tr>  
+                            <tr>
+                                <td>Apples</td>
+                                <td>69</td>
+                                <td>$1190</td>
+                            </tr>  
+                        </tbody>
+                    </table>
+                    
+                    <table id="total-table">
+                        <tbody>
+                            <tr>
+                                <td class="td-bold">Subtotal</td>
+                                <td>$69</td>
+                            </tr>  
+                            <tr>
+                                <td>Shipping</td>
+                                <td>$100</td>
+                            </tr>  
+                            <tr>
+                                <td class="td-bold">Total</td>
+                                <td>$169</td>
+                            </tr>  
+                        </tbody>
+                    </table>
+                    
+                    <button>Submit Order</button>
+                </div>
+
+            </div>
+        </div>
+    </main>
+    <footer> Copyright &copy; Ioana Pascu - 2017 </footer>
+</body>
+
+</html>
