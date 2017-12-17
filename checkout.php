@@ -145,73 +145,75 @@ if (isset($_POST['place-order'])) {
     
     // correct quantities (products for which customer wants to order more than the current stock)
     $corrected = correctQuantities();
-    
-    // create new order 
-    $query = "INSERT INTO orders(customer_id, amount, date, notes, status) VALUES(?, ?, SYSDATE(), ?, 'Processing')";
-    
-    $totalPrice = showTotalPrice();
-    if ($totalPrice == 0) {
-        echo "<script>alert('You cannot place an order with 0 items!')</script>";
-        echo "<script>window.open('cart.php','_self')</script>";
-        return;
-    }
-    
-    $stmt = $connection->prepare($query);
-    $stmt->bind_param("sss", $customerId, $totalPrice, $notes);
-    $stmt->execute();
-    $stmt->free_result();
-    $stmt->close();
-    
-    // get id of inserted order
-    $orderId = $connection->insert_id;
-    
-    // select items from cart
-    $query = "SELECT * FROM cart WHERE customer_id = ?";
-    $stmt = $connection->prepare($query);
-    $stmt->bind_param("s", $customerId);
-    $stmt->execute();
-    $products = $stmt->get_result();
-    $stmt->free_result();
-    $stmt->close();
-    
-    while ($row = $products->fetch_assoc()) {
-        $productId = $row['product_id'];
-        $quantity = $row['quantity'];
-    
-        // move item from cart to order_item table, and mark it as belonging to the order
-        $query = "INSERT INTO order_item(order_id, product_id, quantity) VALUES(?, ?, ?)";
-        $stmt = $connection->prepare($query);
-        $stmt->bind_param("sss", $orderId, $productId, $quantity);
-        $stmt->execute();
-        $stmt->free_result();
-        $stmt->close();
-        
-        // decrease stock for product
-        $query = "UPDATE product SET stock = stock - ? WHERE id = ?";
-        $stmt = $connection->prepare($query);
-        $stmt->bind_param("ss", $quantity, $productId);
-        $stmt->execute();
-        $stmt->free_result();
-        $stmt->close();
-        
-    }
-    
-    // delete items from cart
-    $query = "DELETE FROM cart WHERE customer_id = ?";
-    $stmt = $connection->prepare($query);
-    $stmt->bind_param("s", $customerId);
-    $stmt->execute();
-    
-    $stmt->free_result();
-    $stmt->close();
-    
-    // notify the customer if quantity was corrected
+
     if (!empty($corrected)) {
-        echo "<script type='text/javascript'>alert('Due to the fact that there was not enough stock, the following quantities have changed for your order: $corrected')</script>";
-    }  
-    
-    // redirect customer 
-    echo "<script>window.location.href='order_shipped.php';</script>";
+        $urlcorrected = urlencode($corrected);
+        echo "<script type='text/javascript' language='javascript'> window.open('cart.php?corrected=$urlcorrected','_self');</script>";
+        //echo "<script>window.location.href='cart.php';</script>";
+        //echo "<script type='text/javascript' language='javascript'> window.open('cart.php','_self');</script>";
+    } else {
+        // create new order 
+        $query = "INSERT INTO orders(customer_id, amount, date, notes, status) VALUES(?, ?, SYSDATE(), ?, 'Processing')";
+
+        $totalPrice = showTotalPrice();
+        if ($totalPrice == 0) {
+            echo "<script>alert('You cannot place an order with 0 items!')</script>";
+            echo "<script>window.open('cart.php','_self')</script>";
+            return;
+        }
+
+        $stmt = $connection->prepare($query);
+        $stmt->bind_param("sss", $customerId, $totalPrice, $notes);
+        $stmt->execute();
+        $stmt->free_result();
+        $stmt->close();
+
+        // get id of inserted order
+        $orderId = $connection->insert_id;
+
+        // select items from cart
+        $query = "SELECT * FROM cart WHERE customer_id = ?";
+        $stmt = $connection->prepare($query);
+        $stmt->bind_param("s", $customerId);
+        $stmt->execute();
+        $products = $stmt->get_result();
+        $stmt->free_result();
+        $stmt->close();
+
+        while ($row = $products->fetch_assoc()) {
+            $productId = $row['product_id'];
+            $quantity = $row['quantity'];
+
+            // move item from cart to order_item table, and mark it as belonging to the order
+            $query = "INSERT INTO order_item(order_id, product_id, quantity) VALUES(?, ?, ?)";
+            $stmt = $connection->prepare($query);
+            $stmt->bind_param("sss", $orderId, $productId, $quantity);
+            $stmt->execute();
+            $stmt->free_result();
+            $stmt->close();
+
+            // decrease stock for product
+            $query = "UPDATE product SET stock = stock - ? WHERE id = ?";
+            $stmt = $connection->prepare($query);
+            $stmt->bind_param("ss", $quantity, $productId);
+            $stmt->execute();
+            $stmt->free_result();
+            $stmt->close();
+
+        }
+
+        // delete items from cart
+        $query = "DELETE FROM cart WHERE customer_id = ?";
+        $stmt = $connection->prepare($query);
+        $stmt->bind_param("s", $customerId);
+        $stmt->execute();
+
+        $stmt->free_result();
+        $stmt->close();
+
+        // redirect customer 
+        echo "<script>window.location.href='order_shipped.php';</script>";
+    }    
  
 }
 
@@ -269,6 +271,7 @@ function correctQuantities() {
     }
     
     return $corrected;
+    
 }
 
 ?>

@@ -76,6 +76,7 @@ while ($row = $orders->fetch_assoc()) {
                     </td>
                     <td><?php echo $amount; ?></td>
                     <td><?php echo $status; ?></td>
+                    <td><button><a href='download_invoice.php?order_id=<?php echo $id; ?>'>Download Invoice</a></button></td>
 <?php
     
     // if order was not received show button to mark it as received
@@ -84,7 +85,6 @@ while ($row = $orders->fetch_assoc()) {
     }
     
     ?>
-                    <td><button><a href='download_invoice.php?order_id=<?php echo $id; ?>'>Download Invoice</a></button></td>
                     
                 </tr>
 <?php

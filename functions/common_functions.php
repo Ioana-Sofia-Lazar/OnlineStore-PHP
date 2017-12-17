@@ -76,35 +76,43 @@ function getIp() {
 }
 
 /**
- * 
- */
-function removeGetVariable($varName) {
-    
-    // get current url
-    $string = basename($_SERVER['REQUEST_URI']);;
-
-    $parts = parse_url($string);
-
-    $queryParams = array();
-    parse_str($parts['query'], $queryParams);
-
-    // remove parameter
-    unset($queryParams[$varName]);
-    
-    // rebuild the url
-    $queryString = http_build_query($queryParams);
-    $url = $parts['path'] . '?' . $queryString;
-    
-    return $url;
-    
-}
-
-/**
  * For a page that is only accessible for a logged in customer, show an error message if anyone else tries to access it.
  */
 function checkAccessDenied() {
     if (!isset($_SESSION['customer_email'])) {
         echo "<script>window.open('access_denied.php','_self')</script>";
+    }
+}
+
+function addVisitor() {
+    $ip = getIp();
+    global $connection;
+    
+    $query = "SELECT * FROM unique_visitors WHERE ip_address = ? AND date_field = CURDATE()";
+    $stmt = $connection->prepare($query);
+    $stmt->bind_param("s", $ip);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    $stmt->free_result();
+    $stmt->close();
+    
+    // if this visitor has already been registered for today
+    if ($result->num_rows > 0) {
+        // increase number of views
+        $query = "UPDATE unique_visitors SET views = views + 1 WHERE ip_address = ? AND date_field = CURDATE()";
+        $stmt = $connection->prepare($query);
+        $stmt->bind_param("s", $ip);
+        $stmt->execute();
+        $stmt->free_result();
+        $stmt->close();
+    } else {
+        // insert new visitor
+        $query = "INSERT INTO unique_visitors(ip_address, date_field, views) VALUES(?, CURDATE(), 1)";
+        $stmt = $connection->prepare($query);
+        $stmt->bind_param("s", $ip);
+        $stmt->execute();
+        $stmt->free_result();
+        $stmt->close();
     }
 }
 

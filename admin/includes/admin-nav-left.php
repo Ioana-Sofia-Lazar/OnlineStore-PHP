@@ -8,5 +8,6 @@
         <li><a href="brands.php">Brands</a></li>
         <li><a href="orders.php">Orders</a></li>
         <li><a href="customers.php">Customers</a></li>
+        <li><a href="stats.php">Statistics</a></li>
     </ul>
 </div>

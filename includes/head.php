@@ -4,6 +4,8 @@ session_start();
 include("./functions/functions.php");
 include("./functions/common_functions.php");
 
+addVisitor();
+
 ?>
 <html>
 

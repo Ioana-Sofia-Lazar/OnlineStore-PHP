@@ -22,7 +22,7 @@ function showProductDetails() {
 
         $productId = $_GET['product_id'];
 
-        $query = "SELECT * FROM product WHERE id = ?";
+        $query = "SELECT p.*, b.title brand_title FROM product p, brand b WHERE p.id = ? AND b.id = p.brand";
         $stmt = $connection->prepare($query);
         $stmt->bind_param("s", $productId);
         $stmt->execute();
@@ -32,7 +32,7 @@ function showProductDetails() {
 
             $id = $row['id'];
             $categ = $row['category'];
-            $brand = $row['brand'];
+            $brand = $row['brand_title'];
             $title = $row['title'];
             $price = $row['price'];
             $image = $row['image'];
@@ -47,9 +47,9 @@ function showProductDetails() {
                         <img src='$image' height='300' />
 
                         <p><b> $$price </b></p>
-                        <p> In stock: $stock</p>
-
-                        <p>$description </p>
+                        <p>Brand: $brand </p>
+                        <p>In stock: $stock</p>
+                        <p>Description: $description </p>                     
 
                         <button onclick='history.go(-1);'>Go Back</button>
 

@@ -15,7 +15,14 @@ $totalItems = showTotalItems();
                         <table class="cart-table">
 
                             <caption class="slab-font">You Have <?php echo $totalItems; ?> item(s) In Your Cart</caption>
-
+                            
+                            <?php
+                            // if we were sent from checkout after quantities were corrected
+                            if (isset($_GET["corrected"])) {
+                                echo "<p style='color:red'>Due to the fact that there were not enough items in our stock, the following quantities have changed:</p><p style='color:red'>" . $_GET["corrected"] . "</p>";
+                            }
+                            ?>
+                                
                             <tr class="heading heading-font">
                                 <th class="cart-item pl">Cart Items</th>
                                 <th class="cart-item-price">Price</th>
